@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "995d1fd6-befb-4a52-bc42-f95e4ffc01f0",
+		"name": "Safe Browsing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27426505"
+	},
+	"item": [
+		{
+			"name": "Получение спискив",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/{{VER}}/threatLists{{KEYS}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{VER}}",
+						"threatLists{{KEYS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка по URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \"threatInfo\": {\r\n    \"threatTypes\": [\"{MALWARE}\"],\r\n    \"platformTypes\": [\"{WINDOWS}\"],\r\n    \"threatEntryTypes\": [\"{URL}\"],\r\n    \"threatEntries\": [\r\n      {\"url\": \"https://www.youtube.com/\"}\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{VER}}/threatMatches:find{{KEYS}}",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{VER}}",
+						"threatMatches:find{{KEYS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка по URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n \"threatInfo\": {\r\n    \"threatTypes\": [\"{MALWARE}\"],\r\n    \"platformTypes\": [\"{WINDOWS}\"],\r\n    \"threatEntryTypes\": [\"{URL}\"],\r\n    \"threatEntries\": [\r\n      {\"url\": \"https://www.youtube.com/\"}\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{VER}}/threatMatches:find{{KEYS}}\n",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{VER}}",
+						"threatMatches:find{{KEYS}}\n"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://sba.yandex.net"
+		},
+		{
+			"key": "VER",
+			"value": "v4"
+		},
+		{
+			"key": "KEYS",
+			"value": "?73387610-1fad-49c9-b2fd-147a59d3ff03"
+		}
+	]
+}
